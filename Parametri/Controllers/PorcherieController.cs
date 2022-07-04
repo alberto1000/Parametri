@@ -91,7 +91,7 @@ namespace Parametri.Controllers
         public ActionResult<Porcheria> Get( int id, string bonta)
         {
             List<Porcheria> lp = creaPorcherie();
-
+            int xyz = 3;
             return lp.Where(xyz => xyz.id == id && xyz.bonta == bonta).FirstOrDefault();
         }
 
@@ -117,6 +117,7 @@ namespace Parametri.Controllers
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+            //non implementata
         }
 
         // DELETE api/<PorcherieController>/5

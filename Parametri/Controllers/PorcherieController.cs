@@ -6,7 +6,7 @@
  * Ricordiamo che per overload un'azione può avere lo stesso nome di un'altra ma usare parametri diversi
  * Noi possiamo passare i parametri ad un'azione entry point del nostro controller nei seguenti modi:
  *  -01- attraverso il routing usando FromRouteAttribute
- *  -02- attraverso l'url usando FromQuery
+ *  -02- attraverso l'url usando FromQuery (bisogna assegnare nomi ai parametri e usarli)
  *  -03- tramite il Body fornedo nel Body della richiesta un oggetto in formato JSON o XML
  *  Nel nostro caso abbiamo l'informazione di base  [Route("api/[controller]")] -> api/Porcherie,
  *  quando lanciamo una richesta costruiremo la base dell'Url specificando il protocollo http o https,
@@ -18,7 +18,7 @@
  *       -01- public ActionResult<List<Porcheria>> Get() che verrà chiamato con http://localhost:11000/api/Porcherie
  *            e sarà annotato con [HttpGet]
  *       -02- public ActionResult<Porcheria> Get(int id) che verrà chiamato con http://localhost:11000/api/Porcherie/<valore id>
- *            nel nostro caso valore è un intero ad es. 3; il metodo verrà annotato con HttpGet("{id}")]
+ *            nel nostro caso valore è un intero ad es. 3; il metodo verrà annotato con [HttpGet("{id}")]
  *       -03- public ActionResult<Porcheria> Get(int id, string bonta) che verrà chiamato con
  *            http://localhost:11000/api/Porcherie/<valore id>/<valore bonta> e verrà annotato con 
  *            [HttpGet("{id}/{bonta}")]
@@ -30,7 +30,7 @@
  *        in funione dei parametri di route che abbiamo definito per l'azione. Volendo aggiungere altre azioni che implementano la get
  *        con nome metodo diverso e con gli stessi parametri delle get precedenti forniti da una query string dobbiamo modificare 
  *        anche il nostro route aggiungendo un action [Route("api/[controller]/[action]")] questo vuol dire che potrò usare il nome del
- *        metodo per invocare (un nome metodo per ogni operazione l'operazione). Fatto ciò le chiamate precedenti diventeranno:
+ *        metodo per invocare (un nome metodo per ogni operazione ). Fatto ciò le chiamate precedenti diventeranno:
  *             -- http://localhost:11000/api/Porcherie/Get
  *             -- http://localhost:11000/api/Porcherie/Get/<valore id>
  *             -- http://localhost:11000/api/Porcherie/Get/<valore id>/<valore bonta> 

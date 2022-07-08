@@ -14,6 +14,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+Console.WriteLine("Modifica Lolli Alberto");
+
 // Configurazione w3c logger
 builder.Services.AddW3CLogging(logging =>
 {
@@ -48,6 +50,7 @@ void inspect()
 {
 
     Console.WriteLine("-----------------  uso app.Use ---------------");
+
     app.Use(async (context, next) =>
     {
         var currentEndpoint = context.GetEndpoint();
@@ -57,6 +60,7 @@ void inspect()
             await next(context);
             return;
         }
+
 
         Console.WriteLine($"Endpoint: {currentEndpoint.DisplayName}");
 
